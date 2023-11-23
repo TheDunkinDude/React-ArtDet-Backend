@@ -9,7 +9,7 @@ import mysql.connector
 app = Flask(__name__)
 CORS(app)
 
-mydb = mysql.connector.connect(
+'''mydb = mysql.connector.connect(
     host='localhost',
     user = 'TharrunS',
     password = 'GreatPretender', 
@@ -24,7 +24,7 @@ sqlQueryInsert = "Insert into prediction_logs (File, Prediction) values (%s, %s)
 
 sqlQueryUpdate = "Update  prediction_logs set Prediction = %s  where File = %s;"
 
-sqlQueryInsertReport = "Insert into report_log (Error_Section, Complaint) values(%s, %s);"
+sqlQueryInsertReport = "Insert into report_log (Error_Section, Complaint) values(%s, %s);"'''
 
 def pred_img(img):
     im = cv2.imread(img)
@@ -43,7 +43,7 @@ UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
  
-@app.route('/api/upload', methods=['POST'])
+@app.route('/', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'}), 400
@@ -58,7 +58,7 @@ def upload_image():
 
         pred = pred_img(filename)
         
-        exsistQ = "Select Exists (Select * from prediction_logs where File = " +  "'" + image.filename +"'" + ");" 
+        '''exsistQ = "Select Exists (Select * from prediction_logs where File = " +  "'" + image.filename +"'" + ");" 
 
         logCursor.execute(exsistQ)
 
@@ -72,14 +72,14 @@ def upload_image():
         else:
             val = (image.filename,pred)
             logCursor.execute(sqlQueryInsert, val)
-            mydb.commit()
+            mydb.commit()'''
         
         return jsonify({'message': 'Image uploaded successfully', 'filename': image.filename, 'pred' : pred , 'messsage' : isThere[0][0]})
     else:
         return jsonify({'error': 'Failed to upload image'}), 500
 
 @app.route('/api/submit', methods=['POST'])
-def submit_data():
+'''def submit_data():
     try:
         data = request.json
         valdat = []
@@ -89,7 +89,7 @@ def submit_data():
         mydb.commit()
         return jsonify({'message': 'Data submitted successfully', 'data': valdat})
     except Exception as e:
-        return jsonify({'error': 'Failed to submit data'}), 500
+        return jsonify({'error': 'Failed to submit data'}), 500'''
 
 if __name__ == "__main__":
     app.run(host='localhost' , port = 5000,debug=True)
