@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'AiArtDet-Backend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D28F805C442640F090FF34B6B073B9E6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F0B9589E847643259492EEEFA0D9CC46 }}
