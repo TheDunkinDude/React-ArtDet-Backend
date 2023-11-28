@@ -77,9 +77,9 @@ def upload_image():
         return jsonify({'message': 'Image uploaded successfully', 'filename': image.filename, 'pred' : pred , 'messsage' : isThere[0][0]})
     else:
         return jsonify({'error': 'Failed to upload image'}), 500
-
+'''
 @app.route('/api/submit', methods=['POST'])
-'''def submit_data():
+def submit_data():
     try:
         data = request.json
         valdat = []
