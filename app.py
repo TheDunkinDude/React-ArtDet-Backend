@@ -7,7 +7,7 @@ from flask_cors import CORS
 #import mysql.connector
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origin = "https://delightful-rock-007697d10.4.azurestaticapps.net/")
 
 '''mydb = mysql.connector.connect(
     host='localhost',
