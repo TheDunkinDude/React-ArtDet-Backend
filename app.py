@@ -4,7 +4,7 @@ import tensorflow as tf
 import cv2,imghdr, os
 import numpy as np
 from flask_cors import CORS 
-import mysql.connector
+#import mysql.connector
 
 app = Flask(__name__)
 CORS(app)
