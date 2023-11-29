@@ -7,7 +7,7 @@ from flask_cors import CORS
 #import mysql.connector
 
 app = Flask(__name__)
-CORS(app, origin = "https://delightful-rock-007697d10.4.azurestaticapps.net/")
+CORS(app)
 
 '''mydb = mysql.connector.connect(
     host='localhost',
@@ -92,4 +92,4 @@ def submit_data():
         return jsonify({'error': 'Failed to submit data'}), 500'''
 
 if __name__ == "__main__":
-    app.run(port = 8000,debug = True)
+    app.run()
