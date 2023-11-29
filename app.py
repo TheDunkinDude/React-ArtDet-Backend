@@ -91,4 +91,4 @@ def submit_data():
     except Exception as e:
         return jsonify({'error': 'Failed to submit data'}), 500'''
 
-
+if __name__ == '__main__':
