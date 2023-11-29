@@ -92,4 +92,4 @@ def submit_data():
         return jsonify({'error': 'Failed to submit data'}), 500'''
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8000)
