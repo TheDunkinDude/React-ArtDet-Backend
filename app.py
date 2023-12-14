@@ -43,12 +43,12 @@ UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
  
-@app.route('/', methods=['POST'])
+@app.route('/api/sub', methods=['POST'])
 def upload_image():
-    if 'image' not in request.files:
+    if 'file' not in request.files:
         return jsonify({'error': 'No image provided'}), 400
 
-    image = request.files['image']
+    image = request.files['file']
     if image.filename == '':
         return jsonify({'error': 'No selected image'}), 400
 
@@ -92,9 +92,4 @@ def submit_data():
         return jsonify({'error': 'Failed to submit data'}), 500'''
 
 if __name__ == '__main__':
-    HOST = environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(environ.get('SERVER_PORT', '8000'))
-    except ValueError:
-        PORT = 8000
-    app.run(HOST, PORT)
+    app.run(host = "0.0.0.0") 
