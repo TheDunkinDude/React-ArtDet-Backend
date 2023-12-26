@@ -74,7 +74,7 @@ def upload_image():
             logCursor.execute(sqlQueryInsert, val)
             mydb.commit()'''
         
-        return jsonify({'message': 'Image uploaded successfully', 'filename': image.filename, 'pred' : pred , 'messsage' : isThere[0][0]})
+        return jsonify({'message': 'Image uploaded successfully', 'filename': image.filename, 'pred' : pred})
     else:
         return jsonify({'error': 'Failed to upload image'}), 500
 '''
