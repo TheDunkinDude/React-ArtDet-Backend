@@ -39,7 +39,7 @@ def pred_img(img):
  
 model = tf.keras.models.load_model('my_model.keras')
     
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = 'Uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
  
